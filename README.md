@@ -165,28 +165,30 @@ Rscript --vanilla boxplotter_cli.R -h
 ```
 
 #### Basic boxplot
+Following the command below and generate a basic boxplot
 ```
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Time
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Time --save-as mockFigure/BasicBoxplot.png
+# if the data is in the same directory/folder and you dont mention a filename for the generated image
+# x-axis is Time and Color parameter is Cell
 Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell
 ```
-
-#### Change colors
+![](mockFigure/BasicBoxplot.png)
+#### Change colors/ Customize color
 ```
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --color navy
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --palette jco
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --palette red green blue cyan gold gray pink navy
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Time --save-as mockFigure/CustomizeColorBoxplot.png --palette red green blue cyan gold gray pink navy
+#Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --color navy
+#Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --palette jco
 ```
 
 #### Make group
 ```
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/GroupedBoxplot.png
 ```
 
 #### Show dotplot
 ```
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot dotplot
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --dot-color gold
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot dotplot --dot-size 0.8 --dot-val 0.3 --dot-alpha 0.5 --save-as mockFigure/DotBoxplot.png 
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/DotBoxplot_gold.png --dot jitter --dot-color gold
 ```
 
 #### Show outliers
@@ -196,7 +198,7 @@ Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell 
 
 #### Statistics 
 ```
-Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --facet Time --fill Cell --palette npg --dot dotplot --dot-size 0.6 --dot-val 0.6 --dot-alpha 0.2 --stat --stat-comp LIG4 MRE11-1
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --facet Time --fill Cell --palette npg --dot dotplot --dot-size 0.6 --dot-val 0.6 --dot-alpha 0.2 --stat --stat-comp shGn1 shGn2  mu3-1 mu3-2 --save-as mockFigure/MockFigure5C_statistics.png
 ```
 
 #### import excel files
