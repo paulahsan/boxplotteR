@@ -7,7 +7,7 @@ which itself is based on the infamous [ggplot2, by Hadley Wickham,](https://ggpl
 ## Installation and loading
 The tool has some library dependancies.
 ### ggplot2
--   he easiest way to get ggplot2 is to install the whole tidyverse:
+-   The easiest way to get ggplot2 is to install the whole tidyverse:
 ``` r
 install.packages("tidyverse")
 ```
