@@ -174,33 +174,41 @@ Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time 
 ```
 ![](mockFigure/BasicBoxplot.png)
 #### Change colors/ Customize color
+User can provide custom colors
 ```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Time --save-as mockFigure/CustomizeColorBoxplot.png --palette red green blue cyan gold gray pink navy
 #Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --color navy
 #Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --palette jco
 ```
-
+![](mockFigure/CustomizeColorBoxplot.png)
 #### Make group
-```
+```r
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/GroupedBoxplot.png
 ```
+![](mockFigure/GroupedBoxplot.png)
 
 #### Show dotplot
+size, amount and transparency of the dots can be specified
+```r
+Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot dotplot --dot-size 0.8 --dot-val 0.3 --dot-alpha 0.5 --save-as mockFigure/DotBoxplot.png
 ```
-Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot dotplot --dot-size 0.8 --dot-val 0.3 --dot-alpha 0.5 --save-as mockFigure/DotBoxplot.png 
+![](mockFigure/DotBoxplot.png)
+```
+Color of dot can be specified
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/DotBoxplot_gold.png --dot jitter --dot-color gold
 ```
-
+![](mockFigure/DotBoxplot_gold.png)
 #### Show outliers
 ```
 Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --dot-color gol --show-outliers
 ```
 
 #### Statistics 
+To add statistical summary of the dotplot i.e compare means via t-test can be performed
 ```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --facet Time --fill Cell --palette npg --dot dotplot --dot-size 0.6 --dot-val 0.6 --dot-alpha 0.2 --stat --stat-comp shGn1 shGn2  mu3-1 mu3-2 --save-as mockFigure/MockFigure5C_statistics.png
 ```
-
+![](mockFigure/MockFigure5C_statistics.png)
 #### import excel files
 ```
 Rscript --vanilla boxplotter_cli.R --file Mock_Figure5C.xlsx 3 --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --show-outliers --stat --stat-comp LIG4 MRE11-1 --dot-color gold --color steelblue --title "This is title of the plot"
