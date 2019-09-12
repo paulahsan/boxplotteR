@@ -31,7 +31,7 @@ devtools::install_github("kassambara/ggpubr")
 ```
 ### argparse
 -  To install the latest version released on CRAN use the following command:
-```r
+```
 install.packages("argparse")
 ```
 ### tidyR
@@ -45,25 +45,25 @@ install.packages("tidyr")
 ```
 ### magrittr
 -  The easiest way to get magrittr is to install the whole tidyverse:
-```r
+```
 install.packages("tidyverse")
 ```
 -  Alternatively, install just magrittr:
-```r
+```
 install.packages("magrittr")
 ```
 ### reshape2
 -  Get the released version from cran
-```r
+```
 install.packages("reshape2")
 ```
 ### readxl
 -  The easiest way to install the latest released version from CRAN is to install the whole tidyverse.
-```r
+```
 install.packages("tidyverse")
 ```
 -  Alternatively, install just readxl from CRAN:
-```r
+```
 install.packages("readxl")
 ```
 ## Help Menu of the tool
@@ -160,13 +160,13 @@ $   Rscript --vanilla boxplotter_cli.R --file ~/my_cli_tools/MockFigure5C_3rdShe
 ## The reader can try the codes below:
 
 #### Show help menu
-```r
+```
 Rscript --vanilla boxplotter_cli.R -h
 ```
 
 #### Basic boxplot
 Following the command below and generate a basic boxplot
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Time --save-as mockFigure/BasicBoxplot.png
 # if the data is in the same directory/folder and you dont mention a filename for the generated image
 # x-axis is Time and Color parameter is Cell
@@ -175,41 +175,41 @@ Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time 
 ![](mockFigure/BasicBoxplot.png)
 #### Change colors/ Customize color
 User can provide custom colors
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Time --save-as mockFigure/CustomizeColorBoxplot.png --palette red green blue cyan gold gray pink navy
 #Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --color navy
 #Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Time --y-ax Foci --fill Cell --palette jco
 ```
 ![](mockFigure/CustomizeColorBoxplot.png)
 #### Make group
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/GroupedBoxplot.png
 ```
 ![](mockFigure/GroupedBoxplot.png)
 
 #### Show dotplot
 size, amount and transparency of the dots can be specified
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot dotplot --dot-size 0.8 --dot-val 0.3 --dot-alpha 0.5 --save-as mockFigure/DotBoxplot.png
 ```
 ![](mockFigure/DotBoxplot.png)
 Color of dot can be specified
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/DotBoxplot_gold.png --dot jitter --dot-color gold
 ```
 ![](mockFigure/DotBoxplot_gold.png)
 #### Show outliers
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --dot-color gol --show-outliers
 ```
 
 #### Statistics 
 To add statistical summary of the dotplot i.e compare means via t-test can be performed
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --facet Time --fill Cell --palette npg --dot dotplot --dot-size 0.6 --dot-val 0.6 --dot-alpha 0.2 --stat --stat-comp shGn1 shGn2  mu3-1 mu3-2 --save-as mockFigure/MockFigure5C_statistics.png
 ```
 ![](mockFigure/MockFigure5C_statistics.png)
 #### import excel files
-```r
+```
 Rscript --vanilla boxplotter_cli.R --file Mock_Figure5C.xlsx 3 --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --show-outliers --stat --stat-comp LIG4 MRE11-1 --dot-color gold --color steelblue --title "This is title of the plot"
 ```
