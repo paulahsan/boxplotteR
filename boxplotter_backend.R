@@ -41,7 +41,10 @@ formattedData <- function (data_arg, reorder){
   data <- read.csv(data_arg)
   
   #convert Times into factor
+  # The line below produce error if the dataframe does not contaimn Time
+  if("Time" %in% colnames(data)){
   data$Time <-factor(data$Time)
+  }
 
   if (!is.null(reorder)) {
     #List of unique Cell lines
