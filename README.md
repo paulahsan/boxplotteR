@@ -1,4 +1,60 @@
 # boxplotteR
+## Overview
+This tools prepare boxplot and dotplot from the cell biology experimental data. gamma H2AX foci or any other foci number upon any drug treatment can be visualized by this tool. This is just a command line implementation of [ggpubR package] (https://www.rdocumentation.org/packages/ggpubr/versions/0.2.2), which itself is based on the infamous [ggplot2, by Hadley Wickham,](https://ggplot2.tidyverse.org/).
+
+## Installation and loading
+The tool has some library dependancies.
+### ggplot2
+``` r
+# The easiest way to get ggplot2 is to install the whole tidyverse:
+install.packages("tidyverse")
+
+# Alternatively, install just ggplot2:
+install.packages("ggplot2")
+
+# Or the the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("tidyverse/ggplot2")
+```
+### ggpubR
+-   Install from [CRAN](https://cran.r-project.org/package=ggpubr) as follow:
+
+``` r
+install.packages("ggpubr")
+```
+
+-   Or, install the latest version from [GitHub](https://github.com/kassambara/ggpubr) as follow:
+
+``` r
+if(!require(devtools)) install.packages("devtools")
+devtools::install_github("kassambara/ggpubr")
+```
+### argparse
+To install the latest version released on CRAN use the following
+command:
+```r
+install.packages("argparse")
+```
+### tidyR
+```r
+# The easiest way to get ggplot2 is to install the whole tidyverse:
+install.packages("tidyverse")
+# Alternatively, install just tidyr:
+install.packages("tidyr")
+```
+### magrittr
+```r
+# The easiest way to get magrittr is to install the whole tidyverse:
+install.packages("tidyverse")
+
+# Alternatively, install just magrittr:
+install.packages("magrittr")
+```
+### reshape2
+```r
+#Get the released version from cran
+install.packages("reshape2")
+```
 ## Help Menu of the tool
 ```
 $   Rscript --vanilla boxplotter_cli.R -h
