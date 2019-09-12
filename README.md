@@ -88,7 +88,7 @@ DESCRIPTION
 
 Tools for making plot from command line
 For more color option option visit
-https://github.com/paulahsan/my_cli_tools/raw/master/ggplot2-colour-names.png
+https://github.com/paulahsan/boxplotteR/blob/master/ggplot2-colour-names.png
 
 optional arguments:
   -h, --help            show this help message and exit
