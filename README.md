@@ -1,6 +1,7 @@
 # boxplotteR
 ## Overview
-This tools prepare boxplot and dotplot from the cell biology experimental data. gamma H2AX foci or any other foci number upon any drug treatment can be visualized by this tool.\
+This tools prepare boxplot and dotplot from the cell biology experimental data. \
+gamma H2AX foci or any other foci number upon any drug treatment can be visualized by this tool.\
 This is just a command line implementation of [ggpubR package](https://www.rdocumentation.org/packages/ggpubr/versions/0.2.2), \
 which itself is based on the infamous [ggplot2, by Hadley Wickham,](https://ggplot2.tidyverse.org/).
 
