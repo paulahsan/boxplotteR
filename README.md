@@ -193,8 +193,8 @@ size, amount and transparency of the dots can be specified
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --dot dotplot --dot-size 0.8 --dot-val 0.3 --dot-alpha 0.5 --save-as mockFigure/DotBoxplot.png
 ```
 ![](mockFigure/DotBoxplot.png)
-```r
 Color of dot can be specified
+```r
 Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x-ax Cell --y-ax Foci --fill Cell --group Time --save-as mockFigure/DotBoxplot_gold.png --dot jitter --dot-color gold
 ```
 ![](mockFigure/DotBoxplot_gold.png)
