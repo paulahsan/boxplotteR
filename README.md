@@ -55,6 +55,15 @@ install.packages("magrittr")
 #Get the released version from cran
 install.packages("reshape2")
 ```
+### readxl
+The easiest way to install the latest released version from CRAN is to install the whole tidyverse.
+```r
+install.packages("tidyverse")
+```
+Alternatively, install just readxl from CRAN:
+```
+install.packages("readxl")
+```
 ## Help Menu of the tool
 ```
 $   Rscript --vanilla boxplotter_cli.R -h
