@@ -154,7 +154,7 @@ Statistics parser: parse the statistics related arguments:
 $   Rscript --vanilla boxplotter_cli.R --file ~/my_cli_tools/MockFigure5C_3rdSheet.csv \
 --x-ax Cell --y-ax Foci --facet Time --fill Cell --palette npg \
 --dot dotplot --dot-size 0.6 --dot-val 0.6 --dot-alpha 0.2 \
---stat --stat-comp LIG4 MRE11-1
+--stat --stat-comp  mu3-1 mu3-2
 ```
 
 ## The reader can try the codes below:
