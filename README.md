@@ -12,7 +12,7 @@ The tool has some library dependancies.
 ``` r
 install.packages("tidyverse")
 ```
-# Alternatively, install just ggplot2:
+Alternatively, install just ggplot2:
 ``` r
 install.packages("ggplot2")
 ```
