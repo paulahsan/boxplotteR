@@ -213,6 +213,8 @@ Rscript --vanilla boxplotter_cli.R --file mockData/MockFigure5C_3rdSheet.csv --x
 ```
 ![](mockFigure/MockFigure5C_statistics.png)
 #### import excel files
+This module requires more works
 ```r
-Rscript --vanilla boxplotter_cli.R --file Mock_Figure5C.xlsx 3 --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --show-outliers --stat --stat-comp LIG4 MRE11-1 --dot-color gold --color steelblue --title "This is title of the plot"
+Rscript --vanilla boxplotter_cli.R --file mockData/Mock_Figure5C.xlsx 3 --x-ax Cell --y-ax Foci --fill Cell --group Time --dot jitter --show-outliers --stat --stat-comp Glc4 PD-1 --dot-color gold --color steelblue --title "This is title of the plot" --save-as mockFigure/boxplotFromExcelSheet.png
 ```
+![](mockFigure/boxplotFromExcelSheet.png)
