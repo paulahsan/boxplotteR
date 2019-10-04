@@ -184,10 +184,10 @@ getStatParam <- function(stat_param, uniqX) {
 ###########################################
 #   perform statisticsOperation
 ###########################################
-statisticsOperation <- function(img, statMethod, stat_param, uniqX) {
+statisticsOperation <- function(img, statMethod, stat_param, y_position, uniqX) {
   my_comparison <- getStatParam(stat_param, uniqX)
   stat <- stat_compare_means(comparisons = my_comparison, method = statMethod,
-                             label.y = c (28,28,28), label.x = 2.5,
+                             label.y = y_position, label.x = 2.5,
                              aes(label = paste0("p = ", ..p.signif..)))
   img <- img + stat
   return(img)
@@ -198,7 +198,9 @@ statisticsOperation <- function(img, statMethod, stat_param, uniqX) {
 ###########################################
 #print(paste(args$x_ax, args$fill,args$color,sep = ","))
 #print(paste(args))
-makeBoxPlot <- function(df, x_ax, y_ax, color, fill, alpha, palette,
+makeBoxPlot <- function(df, x_ax, y_ax,
+                        max_y, xtick_angle, yscale, legend,
+                        color, fill, alpha, palette,
                         dot, dot_color, dot_fill, dot_alpha, dot_val, dot_size,
                         outliers_argument,
                         y_lab, x_lab, title, facet_argument, facet_col_number) {
@@ -213,7 +215,12 @@ makeBoxPlot <- function(df, x_ax, y_ax, color, fill, alpha, palette,
                                     binwidth=as.numeric(dot_val), dotsize=as.numeric(dot_size),
                                     size= as.numeric(dot_size), jitter = as.numeric(dot_val)), 
                     #facet.by = facet_argument, short.panel.labs = TRUE, #ncol = length(unique(df$facet_option)),
-                    ylim = c(0,31), outlier.shape = outliers_argument,
+                    yscale=yscale,
+                    ylim = c(0,max_y), outlier.shape = outliers_argument,
+                    x.text.angle=xtick_angle,
+                    
+                    legend=legend,
+                   
                     ylab = y_lab, #label of the y axis
                     xlab = x_lab,  #label of the y axis
                     title = title) 

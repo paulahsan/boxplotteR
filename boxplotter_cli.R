@@ -77,7 +77,7 @@ of unique items in the facet columns")
                                     help="define amount of dots/jitter in the dotplot, [default is %(default)s]",default=0.06)
         
         save_parser = parser$add_argument_group('Save parser: parse the figure saving arguments')
-        save_parser$add_argument("--out","--save-as", type="character", help="directory and name for saving the plot, [default name %(default)s]", 
+        save_parser$add_argument("--out", "--save-as", type="character", help="directory and name for saving the plot, [default name %(default)s]", 
                                  default="boxplot.png" )
         save_parser$add_argument("--fig-size", type="integer", help="Figure size width and height respectively, [default W/H are %(default)s]",
                                  nargs=2, default=c(20,12))
@@ -88,8 +88,22 @@ of unique items in the facet columns")
         stat_parser$add_argument("--stat-method", type="character", help="statistical method for testing, [default is %(default)s]", default="t.test")
         stat_parser$add_argument("--stat-comp", type="character", nargs='+', 
                                  help="list for statistical comparisons for testing", default=NULL)
+        stat_parser$add_argument("--stat-pos", type="double", nargs='+', 
+                                 help="y_axis position of the values for statistical comparisons", default=NULL)
         #stat_parser$add_argument("--stat-signif", type="character", nargs="character", 
         #                         help="NOT FUNCTIONAL statistical significance for testing. Option 'p.signif' or 'p.format'", default="p.signif")
+        axis_parser = parser$add_argument_group('Axis parser: parse the axis modifying arguments')
+        axis_parser$add_argument("--yscale", type="character", default="none",
+                                 help="scale the y_axis by 'none', 'log2', 'log10', 'sqrt' [default is %(default)s]")
+        axis_parser$add_argument("--max-y", type="double", default=30,
+                                 help="maximum value to show in the y_axis, [default is %(default)s]")
+        axis_parser$add_argument("--xtick-angle", type="double", default=90,
+                                 help="rotate the tick values on the y_axis, [default is %(default)s]")
+        axis_parser$add_argument("--legend", type="character", default="top",
+                                 help="position the legend 'none', 'bottom', 'right', 'left' [default is %(default)s]")
+        axis_parser$add_argument("--hide-ticks", action='store_false',
+                                 help="All the ticks will be removed")
+
 
   return(parser)
 }
@@ -127,10 +141,12 @@ executeMain <- function () {
   #http://sape.inf.usi.ch/quick-reference/ggplot2/shape
  
   
-  boxPlot <- makeBoxPlot(df, args$x_ax, args$y_ax, args$color, args$fill, args$alpha, args$palette,
-                          args$dot, args$dot_color, args$dot_fill, args$dot_alpha, args$dot_val, args$dot_size,
-                          outliers_argument,
-                          args$y_lab, args$x_lab, args$title, facet_argument, facet_col_number)
+  boxPlot <- makeBoxPlot(df, args$x_ax, args$y_ax, 
+                         args$max_y, args$xtick_angle, args$yscale, args$legend,
+                         args$color, args$fill, args$alpha, args$palette,
+                         args$dot, args$dot_color, args$dot_fill, args$dot_alpha, args$dot_val, args$dot_size,
+                         outliers_argument,
+                         args$y_lab, args$x_lab, args$title, facet_argument, facet_col_number)
 
   #figure with no_facet
   if (is.null(args$facet)) {
@@ -145,14 +161,13 @@ executeMain <- function () {
   } else if (!is.null(args$facet) & args$stat != FALSE){
     if (!is.null(args$stat_comp)){
       facetFigure <- modifyFacet(boxPlot, facet_argument, facet_col_number)
-      statFigure <- statisticsOperation(facetFigure, args$stat_method, args$stat_comp, uniqX)
+      statFigure <- statisticsOperation(facetFigure, args$stat_method, args$stat_comp, args$stat_pos, uniqX)
       finalFigure <- statFigure
     } else {
       stop("'--stat-comp' must be provided for statistical comparison")
     }
   }
-  
-  
+  finalFigure <- ggpar(finalFigure, ticks=args$hide_ticks, tickslab=args$hide_ticks)
   saveFigure(finalFigure, args$out, args$fig_size[1], args$fig_size[2])
     
 }
