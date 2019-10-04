@@ -69,7 +69,6 @@ install.packages("readxl")
 ## Help Menu of the tool
 ```
 $   Rscript --vanilla boxplotter_cli.R -h
-
 usage: boxplotter_cli.R [-h] [--file FILE [FILE ...]] [--x-ax X_AX]
                         [--y-ax Y_AX] [--reorder REORDER [REORDER ...]]
                         [--color COLOR] [--fill FILL] [--alpha ALPHA]
@@ -82,6 +81,9 @@ usage: boxplotter_cli.R [-h] [--file FILE [FILE ...]] [--x-ax X_AX]
                         [--fig-size FIG_SIZE FIG_SIZE] [--show-outliers]
                         [--stat] [--stat-method STAT_METHOD]
                         [--stat-comp STAT_COMP [STAT_COMP ...]]
+                        [--stat-pos STAT_POS [STAT_POS ...]] [--yscale YSCALE]
+                        [--max-y MAX_Y] [--xtick-angle XTICK_ANGLE]
+                        [--legend LEGEND] [--hide-ticks]
 
 DESCRIPTION
  BoxPlotteR
@@ -89,6 +91,7 @@ DESCRIPTION
 Tools for making plot from command line
 For more color option option visit
 https://github.com/paulahsan/boxplotteR/blob/master/ggplot2-colour-names.png
+or https://jaredhuling.org/jcolors/
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -150,11 +153,16 @@ Statistics parser: parse the statistics related arguments:
                         statistical method for testing, [default is t.test]
   --stat-comp STAT_COMP [STAT_COMP ...]
                         list for statistical comparisons for testing
+  --stat-pos STAT_POS [STAT_POS ...]
+                        y_axis position of the values for statistical comparisons
 
-$   Rscript --vanilla boxplotter_cli.R --file ~/my_cli_tools/MockFigure5C_3rdSheet.csv \
---x-ax Cell --y-ax Foci --facet Time --fill Cell --palette npg \
---dot dotplot --dot-size 0.6 --dot-val 0.6 --dot-alpha 0.2 \
---stat --stat-comp  mu3-1 mu3-2
+Axis parser: parse the axis modifying arguments:
+  --yscale YSCALE       scale the y_axis by 'none', 'log2', 'log10', 'sqrt' [default is none]
+  --max-y MAX_Y         maximum value to show in the y_axis, [default is 30]
+  --xtick-angle XTICK_ANGLE
+                        rotate the tick values on the y_axis, [default is 90]
+  --legend LEGEND       position the legend 'none', 'bottom', 'right', 'left' [default is top]
+  --hide-ticks          All the ticks will be removed
 ```
 
 ## The reader can try the codes below:
