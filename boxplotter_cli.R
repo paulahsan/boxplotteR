@@ -142,7 +142,7 @@ executeMain <- function () {
  
   
   boxPlot <- makeBoxPlot(df, args$x_ax, args$y_ax, 
-                         args$max_y, args$xtick_angle, args$yscale, args$legend,
+                         args$max_y, args$yscale, args$legend,
                          args$color, args$fill, args$alpha, args$palette,
                          args$dot, args$dot_color, args$dot_fill, args$dot_alpha, args$dot_val, args$dot_size,
                          outliers_argument,
@@ -167,7 +167,7 @@ executeMain <- function () {
       stop("'--stat-comp' must be provided for statistical comparison")
     }
   }
-  finalFigure <- ggpar(finalFigure, ticks=args$hide_ticks, tickslab=args$hide_ticks)
+  finalFigure <- ggpar(finalFigure, ticks=args$hide_ticks, tickslab=args$hide_ticks, x.text.angle=args$xtick_angle)
   saveFigure(finalFigure, args$out, args$fig_size[1], args$fig_size[2])
     
 }

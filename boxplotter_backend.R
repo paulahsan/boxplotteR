@@ -199,7 +199,7 @@ statisticsOperation <- function(img, statMethod, stat_param, y_position, uniqX) 
 #print(paste(args$x_ax, args$fill,args$color,sep = ","))
 #print(paste(args))
 makeBoxPlot <- function(df, x_ax, y_ax,
-                        max_y, xtick_angle, yscale, legend,
+                        max_y, yscale, legend,
                         color, fill, alpha, palette,
                         dot, dot_color, dot_fill, dot_alpha, dot_val, dot_size,
                         outliers_argument,
@@ -217,7 +217,6 @@ makeBoxPlot <- function(df, x_ax, y_ax,
                     #facet.by = facet_argument, short.panel.labs = TRUE, #ncol = length(unique(df$facet_option)),
                     yscale=yscale,
                     ylim = c(0,max_y), outlier.shape = outliers_argument,
-                    x.text.angle=xtick_angle,
                     
                     legend=legend,
                    
