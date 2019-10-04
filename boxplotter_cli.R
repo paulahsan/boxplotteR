@@ -104,7 +104,8 @@ executeMain <- function () {
   if (length(args$file)==2){ 
     filename <- args$file[1]
     sheetname <- args$file[2]
-    df <- dfFromExcel(filename, sheetname)
+    meltDf <- dfFromExcel(filename, sheetname)
+    df <- reorderData(meltDf, args$reorder)
   } else if (length(args$file)==1){
   df <- formattedData(args$file, args$reorder)
   } else {

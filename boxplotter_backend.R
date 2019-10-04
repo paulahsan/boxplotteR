@@ -41,11 +41,14 @@ formattedData <- function (data_arg, reorder){
   data <- read.csv(data_arg)
   
   #convert Times into factor
-  # The line below produce error if the dataframe does not contaimn Time
+  # The line below produce error if the dataframe does not contain Time
   if("Time" %in% colnames(data)){
   data$Time <-factor(data$Time)
   }
-
+  data <- reorderData(data, reorder)
+  return (data)
+}
+reorderData <- function (data, reorder){
   if (!is.null(reorder)) {
     #List of unique Cell lines
     columnName <- reorder[1]
@@ -94,7 +97,7 @@ dfFromExcel <- function (filename, sheetname){
 }
 
 ###########################################
-#         misSpelled Cgaracters           #
+#         misSpelled Characters           #
 ###########################################
 misSpell <- function(inputString, trueString){
   
